@@ -1,0 +1,486 @@
+<!doctype html>
+<html>
+<head>
+  <style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style>
+  <style type="text/css">.uib-time input{width:50px;}</style>
+  <style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow,[uib-popover-html-popup].popover.top-left > .arrow,[uib-popover-html-popup].popover.top-right > .arrow,[uib-popover-html-popup].popover.bottom-left > .arrow,[uib-popover-html-popup].popover.bottom-right > .arrow,[uib-popover-html-popup].popover.left-top > .arrow,[uib-popover-html-popup].popover.left-bottom > .arrow,[uib-popover-html-popup].popover.right-top > .arrow,[uib-popover-html-popup].popover.right-bottom > .arrow,[uib-popover-template-popup].popover.top-left > .arrow,[uib-popover-template-popup].popover.top-right > .arrow,[uib-popover-template-popup].popover.bottom-left > .arrow,[uib-popover-template-popup].popover.bottom-right > .arrow,[uib-popover-template-popup].popover.left-top > .arrow,[uib-popover-template-popup].popover.left-bottom > .arrow,[uib-popover-template-popup].popover.right-top > .arrow,[uib-popover-template-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover,[uib-popover-html-popup].popover,[uib-popover-template-popup].popover{display:block !important;}</style><style type="text/css">.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}</style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute !important;top:-9999px !important;width:50px !important;height:50px !important;overflow:scroll !important;}.uib-position-body-scrollbar-measure{overflow:scroll !important;}</style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-left,.uib-right{width:100%}</style><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style>
+  <style type="text/css">.uib-time input{width:50px;}</style>
+  <style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow,[uib-popover-html-popup].popover.top-left > .arrow,[uib-popover-html-popup].popover.top-right > .arrow,[uib-popover-html-popup].popover.bottom-left > .arrow,[uib-popover-html-popup].popover.bottom-right > .arrow,[uib-popover-html-popup].popover.left-top > .arrow,[uib-popover-html-popup].popover.left-bottom > .arrow,[uib-popover-html-popup].popover.right-top > .arrow,[uib-popover-html-popup].popover.right-bottom > .arrow,[uib-popover-template-popup].popover.top-left > .arrow,[uib-popover-template-popup].popover.top-right > .arrow,[uib-popover-template-popup].popover.bottom-left > .arrow,[uib-popover-template-popup].popover.bottom-right > .arrow,[uib-popover-template-popup].popover.left-top > .arrow,[uib-popover-template-popup].popover.left-bottom > .arrow,[uib-popover-template-popup].popover.right-top > .arrow,[uib-popover-template-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover,[uib-popover-html-popup].popover,[uib-popover-template-popup].popover{display:block !important;}</style>
+  <style type="text/css">.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}</style>
+  <style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute !important;top:-9999px !important;width:50px !important;height:50px !important;overflow:scroll !important;}.uib-position-body-scrollbar-measure{overflow:scroll !important;}</style>
+  <style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-left,.uib-right{width:100%}</style>
+  <style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style>
+  <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Description" content="Free angular bootstrap admin dashboard template. World first blur panel dashboard.">
+  <meta name="keywords" content="admin,dashboard,template,angular,bootstrap,blur,panel,html,css,javascript">
+  <title>Blur Admin</title>
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&amp;subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+  <!--<link rel="stylesheet" href="styles.css">-->
+
+ <!-- <link rel="stylesheet" href="styles/vendor-2cae343ef1.css">
+  <link rel="stylesheet" href="styles/app-bce21c2366.css">-->
+  <style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style>
+  <style></style>
+ <!--
+  <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/29/7/intl/es_ALL/common.js"></script><style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style><style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/29/7/intl/es_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/29/7/intl/es_ALL/stats.js"></script>
+  <style></style><script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/29/14/intl/es_ALL/common.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/29/14/intl/es_ALL/util.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/29/14/intl/es_ALL/stats.js">
+  </script>
+  -->
+
+</head>
+<body class="blur-theme">
+<div class="body-bg"></div>
+
+<main ng-if="$pageFinishedLoading" ng-class="{ 'menu-collapsed': $baSidebarService.isMenuCollapsed() }" class="ng-scope">
+  <ba-sidebar>
+    <aside class="al-sidebar" ng-swipe-right="$baSidebarService.setMenuCollapsed(false)" ng-swipe-left="$baSidebarService.setMenuCollapsed(true)" ng-mouseleave="hoverElemTop=selectElemTop">
+      <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 686px;">
+        <ul class="al-sidebar-list" slimscroll="{height: '686px'}" slimscroll-watch="menuHeight" style="overflow: hidden; width: auto; height: 686px;">
+          <!-- ngRepeat: item in ::menuItems -->
+          <li ng-repeat="item in ::menuItems" class="al-sidebar-list-item ng-scope selected" ng-class="::{'with-sub-menu': item.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="item">
+            <!-- ngIf: ::!item.subMenu --><a ng-mouseenter="hoverItem($event, item)" ui-state="item.stateRef || ''" ng-href="" ng-if="::!item.subMenu" class="al-sidebar-list-link ng-scope" href="#/dashboard"><i class="ion-android-home"></i><span class="ng-binding">Dashboard</span></a><!-- end ngIf: ::!item.subMenu --> <!-- ngIf: ::item.subMenu --><!-- ngIf: ::item.subMenu -->
+          </li>
+          <!-- end ngRepeat: item in ::menuItems -->
+          <li ng-repeat="item in ::menuItems" class="al-sidebar-list-item ng-scope with-sub-menu" ng-class="::{'with-sub-menu': item.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="item">
+            <!-- ngIf: ::!item.subMenu --> <!-- ngIf: ::item.subMenu -->
+            <a ng-mouseenter="hoverItem($event, item)" ng-if="::item.subMenu" class="al-sidebar-list-link ng-scope" ba-ui-sref-toggler="">
+              <i class="ion-gear-a"></i><span class="ng-binding">Components</span> <!-- ngIf: ::item.subMenu --><b class="fa fa-angle-down ng-scope" ui-sref-active="fa-angle-up" ng-if="::item.subMenu"></b><!-- end ngIf: ::item.subMenu -->
+            </a>
+            <!-- end ngIf: ::item.subMenu --><!-- ngIf: ::item.subMenu -->
+            <ul ng-if="::item.subMenu" class="al-sidebar-sublist ng-scope" ng-class="{'slide-right': item.slideRight}" ba-ui-sref-toggling-submenu="">
+              <!-- ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/components/mail">Mail</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/components/timeline">Timeline</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/components/tree">Tree View</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+            </ul>
+            <!-- end ngIf: ::item.subMenu -->
+          </li>
+          <!-- end ngRepeat: item in ::menuItems -->
+          <li ng-repeat="item in ::menuItems" class="al-sidebar-list-item ng-scope with-sub-menu" ng-class="::{'with-sub-menu': item.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="item">
+            <!-- ngIf: ::!item.subMenu --> <!-- ngIf: ::item.subMenu -->
+            <a ng-mouseenter="hoverItem($event, item)" ng-if="::item.subMenu" class="al-sidebar-list-link ng-scope" ba-ui-sref-toggler="">
+              <i class="ion-stats-bars"></i><span class="ng-binding">Charts</span> <!-- ngIf: ::item.subMenu --><b class="fa fa-angle-down ng-scope" ui-sref-active="fa-angle-up" ng-if="::item.subMenu"></b><!-- end ngIf: ::item.subMenu -->
+            </a>
+            <!-- end ngIf: ::item.subMenu --><!-- ngIf: ::item.subMenu -->
+            <ul ng-if="::item.subMenu" class="al-sidebar-sublist ng-scope" ng-class="{'slide-right': item.slideRight}" ba-ui-sref-toggling-submenu="">
+              <!-- ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/charts/amCharts">amCharts</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/charts/chartist">Chartist</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/charts/chartJs">Chart.js</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/charts/morris">Morris</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+            </ul>
+            <!-- end ngIf: ::item.subMenu -->
+          </li>
+          <!-- end ngRepeat: item in ::menuItems -->
+          <li ng-repeat="item in ::menuItems" class="al-sidebar-list-item ng-scope with-sub-menu" ng-class="::{'with-sub-menu': item.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="item">
+            <!-- ngIf: ::!item.subMenu --> <!-- ngIf: ::item.subMenu -->
+            <a ng-mouseenter="hoverItem($event, item)" ng-if="::item.subMenu" class="al-sidebar-list-link ng-scope" ba-ui-sref-toggler="">
+              <i class="ion-android-laptop"></i><span class="ng-binding">UI Features</span> <!-- ngIf: ::item.subMenu --><b class="fa fa-angle-down ng-scope" ui-sref-active="fa-angle-up" ng-if="::item.subMenu"></b><!-- end ngIf: ::item.subMenu -->
+            </a>
+            <!-- end ngIf: ::item.subMenu --><!-- ngIf: ::item.subMenu -->
+            <ul ng-if="::item.subMenu" class="al-sidebar-sublist ng-scope" ng-class="{'slide-right': item.slideRight}" ba-ui-sref-toggling-submenu="">
+              <!-- ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/typography">Typography</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/buttons">Buttons</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/icons">Icons</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/modals">Modals</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/grid">Grid</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/alerts">Alerts</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/progressBars">Progress Bars</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/notifications">Notifications</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/tabs">Tabs &amp; Accordions</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/slider">Sliders</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/ui/panels">Panels</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+            </ul>
+            <!-- end ngIf: ::item.subMenu -->
+          </li>
+          <!-- end ngRepeat: item in ::menuItems -->
+          <li ng-repeat="item in ::menuItems" class="al-sidebar-list-item ng-scope with-sub-menu" ng-class="::{'with-sub-menu': item.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="item">
+            <!-- ngIf: ::!item.subMenu --> <!-- ngIf: ::item.subMenu -->
+            <a ng-mouseenter="hoverItem($event, item)" ng-if="::item.subMenu" class="al-sidebar-list-link ng-scope" ba-ui-sref-toggler="">
+              <i class="ion-compose"></i><span class="ng-binding">Form Elements</span> <!-- ngIf: ::item.subMenu --><b class="fa fa-angle-down ng-scope" ui-sref-active="fa-angle-up" ng-if="::item.subMenu"></b><!-- end ngIf: ::item.subMenu -->
+            </a>
+            <!-- end ngIf: ::item.subMenu --><!-- ngIf: ::item.subMenu -->
+            <ul ng-if="::item.subMenu" class="al-sidebar-sublist ng-scope" ng-class="{'slide-right': item.slideRight}" ba-ui-sref-toggling-submenu="">
+              <!-- ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/form/inputs">Form Inputs</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/form/layouts">Form Layouts</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/form/wizard">Form Wizard</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+            </ul>
+            <!-- end ngIf: ::item.subMenu -->
+          </li>
+          <!-- end ngRepeat: item in ::menuItems -->
+          <li ng-repeat="item in ::menuItems" class="al-sidebar-list-item ng-scope with-sub-menu" ng-class="::{'with-sub-menu': item.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="item">
+            <!-- ngIf: ::!item.subMenu --> <!-- ngIf: ::item.subMenu -->
+            <a ng-mouseenter="hoverItem($event, item)" ng-if="::item.subMenu" class="al-sidebar-list-link ng-scope" ba-ui-sref-toggler="">
+              <i class="ion-grid"></i><span class="ng-binding">Tables</span> <!-- ngIf: ::item.subMenu --><b class="fa fa-angle-down ng-scope" ui-sref-active="fa-angle-up" ng-if="::item.subMenu"></b><!-- end ngIf: ::item.subMenu -->
+            </a>
+            <!-- end ngIf: ::item.subMenu --><!-- ngIf: ::item.subMenu -->
+            <ul ng-if="::item.subMenu" class="al-sidebar-sublist ng-scope" ng-class="{'slide-right': item.slideRight}" ba-ui-sref-toggling-submenu="">
+              <!-- ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/tables/basic">Basic Tables</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/tables/smart">Smart Tables</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+            </ul>
+            <!-- end ngIf: ::item.subMenu -->
+          </li>
+          <!-- end ngRepeat: item in ::menuItems -->
+          <li ng-repeat="item in ::menuItems" class="al-sidebar-list-item ng-scope with-sub-menu" ng-class="::{'with-sub-menu': item.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="item">
+            <!-- ngIf: ::!item.subMenu --> <!-- ngIf: ::item.subMenu -->
+            <a ng-mouseenter="hoverItem($event, item)" ng-if="::item.subMenu" class="al-sidebar-list-link ng-scope" ba-ui-sref-toggler="">
+              <i class="ion-ios-location-outline"></i><span class="ng-binding">Maps</span> <!-- ngIf: ::item.subMenu --><b class="fa fa-angle-down ng-scope" ui-sref-active="fa-angle-up" ng-if="::item.subMenu"></b><!-- end ngIf: ::item.subMenu -->
+            </a>
+            <!-- end ngIf: ::item.subMenu --><!-- ngIf: ::item.subMenu -->
+            <ul ng-if="::item.subMenu" class="al-sidebar-sublist ng-scope" ng-class="{'slide-right': item.slideRight}" ba-ui-sref-toggling-submenu="">
+              <!-- ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/maps/gmap">Google Maps</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/maps/leaflet">Leaflet Maps</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/maps/bubble">Bubble Maps</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/maps/line">Line Maps</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+            </ul>
+            <!-- end ngIf: ::item.subMenu -->
+          </li>
+          <!-- end ngRepeat: item in ::menuItems -->
+          <li ng-repeat="item in ::menuItems" class="al-sidebar-list-item ng-scope with-sub-menu" ng-class="::{'with-sub-menu': item.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="item">
+            <!-- ngIf: ::!item.subMenu --> <!-- ngIf: ::item.subMenu -->
+            <a ng-mouseenter="hoverItem($event, item)" ng-if="::item.subMenu" class="al-sidebar-list-link ng-scope" ba-ui-sref-toggler="">
+              <i class="ion-document"></i><span class="ng-binding">Pages</span> <!-- ngIf: ::item.subMenu --><b class="fa fa-angle-down ng-scope" ui-sref-active="fa-angle-up" ng-if="::item.subMenu"></b><!-- end ngIf: ::item.subMenu -->
+            </a>
+            <!-- end ngIf: ::item.subMenu --><!-- ngIf: ::item.subMenu -->
+            <ul ng-if="::item.subMenu" class="al-sidebar-sublist ng-scope" ng-class="{'slide-right': item.slideRight}" ba-ui-sref-toggling-submenu="">
+              <!-- ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_blank" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="auth.html" class="ng-binding ng-scope" href="auth.html">Sign In</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_blank" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="reg.html" class="ng-binding ng-scope" href="reg.html">Sign Up</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_self" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="" class="ng-binding ng-scope" href="#/profile">User Profile</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" target="_blank" ng-if="::(!subitem.subMenu &amp;&amp; !subitem.disabled)" ui-state="subitem.stateRef || ''" ng-href="404.html" class="ng-binding ng-scope" href="404.html">404 Page</a><!-- end ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+            </ul>
+            <!-- end ngIf: ::item.subMenu -->
+          </li>
+          <!-- end ngRepeat: item in ::menuItems -->
+          <li ng-repeat="item in ::menuItems" class="al-sidebar-list-item ng-scope with-sub-menu" ng-class="::{'with-sub-menu': item.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="item">
+            <!-- ngIf: ::!item.subMenu --> <!-- ngIf: ::item.subMenu -->
+            <a ng-mouseenter="hoverItem($event, item)" ng-if="::item.subMenu" class="al-sidebar-list-link ng-scope" ba-ui-sref-toggler="">
+              <i class="ion-ios-more"></i><span class="ng-binding">Menu Level 1</span> <!-- ngIf: ::item.subMenu --><b class="fa fa-angle-down ng-scope" ui-sref-active="fa-angle-up" ng-if="::item.subMenu"></b><!-- end ngIf: ::item.subMenu -->
+            </a>
+            <!-- end ngIf: ::item.subMenu --><!-- ngIf: ::item.subMenu -->
+            <ul ng-if="::item.subMenu" class="al-sidebar-sublist ng-scope" ng-class="{'slide-right': item.slideRight}" ba-ui-sref-toggling-submenu="">
+              <!-- ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope">
+                <!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --><a ng-mouseenter="hoverItem($event, item)" href="" ng-if="::(!subitem.subMenu &amp;&amp; subitem.disabled)" class="al-sidebar-list-link ng-binding ng-scope">Menu Level 1.1</a><!-- end ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+              <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected" ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item ng-scope with-sub-menu">
+                <!-- ngIf: ::subitem.subMenu -->
+                <a ng-mouseenter="hoverItem($event, item)" ng-if="::subitem.subMenu" ba-ui-sref-toggler="" class="al-sidebar-list-link subitem-submenu-link ng-scope">
+                  <span class="ng-binding">Menu Level 1.2</span> <!-- ngIf: ::subitem.subMenu --><b class="fa ng-scope fa-angle-down" ng-class="{'fa-angle-up': subitem.expanded, 'fa-angle-down': !subitem.expanded}" ng-if="::subitem.subMenu"></b><!-- end ngIf: ::subitem.subMenu -->
+                </a>
+                <!-- end ngIf: ::subitem.subMenu --><!-- ngIf: ::subitem.subMenu -->
+                <ul ng-if="::subitem.subMenu" class="al-sidebar-sublist subitem-submenu-list ng-scope" ng-class="{expanded: subitem.expanded, 'slide-right': subitem.slideRight}" ba-ui-sref-toggling-submenu="">
+                  <!-- ngRepeat: subSubitem in ::subitem.subMenu -->
+                  <li ng-mouseenter="hoverItem($event, item)" ng-repeat="subSubitem in ::subitem.subMenu" ui-sref-active="selected" class="ng-scope">
+                    <!-- ngIf: ::subSubitem.disabled --><a ng-mouseenter="hoverItem($event, item)" href="" ng-if="::subSubitem.disabled" class="al-sidebar-list-link ng-binding ng-scope">Menu Level 1.2.1</a><!-- end ngIf: ::subSubitem.disabled --> <!-- ngIf: ::!subSubitem.disabled -->
+                  </li>
+                  <!-- end ngRepeat: subSubitem in ::subitem.subMenu -->
+                </ul>
+                <!-- end ngIf: ::subitem.subMenu --><!-- ngIf: ::(!subitem.subMenu && subitem.disabled) --> <!-- ngIf: ::(!subitem.subMenu && !subitem.disabled) -->
+              </li>
+              <!-- end ngRepeat: subitem in ::item.subMenu -->
+            </ul>
+            <!-- end ngIf: ::item.subMenu -->
+          </li>
+          <!-- end ngRepeat: item in ::menuItems -->
+        </ul>
+        <div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 686px;"></div>
+        <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+      </div>
+      <div class="sidebar-hover-elem" ng-style="{top: hoverElemTop + 'px', height: hoverElemHeight + 'px'}" ng-class="{'show-hover-elem': showHoverElem }"></div>
+    </aside>
+  </ba-sidebar>
+  <page-top>
+    <div class="page-top clearfix ng-isolate-scope" scroll-position="scrolled" max-height="50" ng-class="{'scrolled': scrolled}">
+      <a href="#/dashboard" class="al-logo clearfix"><span>Blur</span>Admin</a> <a href="" class="collapse-menu-link ion-navicon" ba-sidebar-toggle-menu=""></a>
+      <div class="search"><i class="ion-ios-search-strong" ng-click="startSearch()"></i> <input id="searchInput" type="text" placeholder="Search for..."></div>
+      <div class="user-profile clearfix">
+        <div class="al-user-profile dropdown" uib-dropdown="">
+          <a uib-dropdown-toggle="" class="profile-toggle-link dropdown-toggle" aria-haspopup="true" aria-expanded="false"><img ng-src="assets/img/app/profile/Nasta.png" src="assets/img/app/profile/Nasta.png"></a>
+          <ul class="top-dropdown-menu profile-dropdown dropdown-menu" uib-dropdown-menu="">
+            <li><i class="dropdown-arr"></i></li>
+            <li><a href="#/profile"><i class="fa fa-user"></i>Profile</a></li>
+            <li><a href=""><i class="fa fa-cog"></i>Settings</a></li>
+            <li><a href="" class="signout"><i class="fa fa-power-off"></i>Sign out</a></li>
+          </ul>
+        </div>
+        <msg-center>
+          <ul class="al-msg-center clearfix">
+            <li uib-dropdown="" class="dropdown">
+              <a href="" uib-dropdown-toggle="" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-bell-o"></i><span>5</span>
+                <div class="notification-ring"></div>
+              </a>
+              <div uib-dropdown-menu="" class="top-dropdown-menu dropdown-menu">
+                <i class="dropdown-arr"></i>
+                <div class="header clearfix"><strong>Notifications</strong> <a href="">Mark All as Read</a> <a href="">Settings</a></div>
+                <div class="msg-list">
+                  <!-- ngRepeat: msg in notifications -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in notifications">
+                    <div class="img-area"><img ng-class="{'photo-msg-item' : !msg.image}" ng-src="assets/img/app/profile/Vlad.png" src="assets/img/app/profile/Vlad.png" class="photo-msg-item"></div>
+                    <div class="msg-area">
+                      <div ng-bind-html="getMessage(msg)" class="ng-binding"><strong>Vlad</strong> posted a new article.</div>
+                      <span class="ng-binding">1 min ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in notifications -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in notifications">
+                    <div class="img-area"><img ng-class="{'photo-msg-item' : !msg.image}" ng-src="assets/img/app/profile/Kostya.png" src="assets/img/app/profile/Kostya.png" class="photo-msg-item"></div>
+                    <div class="msg-area">
+                      <div ng-bind-html="getMessage(msg)" class="ng-binding"><strong>Kostya</strong> changed his contact information.</div>
+                      <span class="ng-binding">2 hrs ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in notifications -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in notifications">
+                    <div class="img-area"><img ng-class="{'photo-msg-item' : !msg.image}" ng-src="assets/img/shopping-cart.svg" src="assets/img/shopping-cart.svg"></div>
+                    <div class="msg-area">
+                      <div ng-bind-html="getMessage(msg)" class="ng-binding">New orders received.</div>
+                      <span class="ng-binding">5 hrs ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in notifications -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in notifications">
+                    <div class="img-area"><img ng-class="{'photo-msg-item' : !msg.image}" ng-src="assets/img/app/profile/Andrey.png" src="assets/img/app/profile/Andrey.png" class="photo-msg-item"></div>
+                    <div class="msg-area">
+                      <div ng-bind-html="getMessage(msg)" class="ng-binding"><strong>Andrey</strong> replied to your comment.</div>
+                      <span class="ng-binding">1 day ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in notifications -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in notifications">
+                    <div class="img-area"><img ng-class="{'photo-msg-item' : !msg.image}" ng-src="assets/img/app/profile/Nasta.png" src="assets/img/app/profile/Nasta.png" class="photo-msg-item"></div>
+                    <div class="msg-area">
+                      <div ng-bind-html="getMessage(msg)" class="ng-binding">Today is <strong>Nasta</strong>'s birthday.</div>
+                      <span class="ng-binding">2 days ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in notifications -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in notifications">
+                    <div class="img-area"><img ng-class="{'photo-msg-item' : !msg.image}" ng-src="assets/img/comments.svg" src="assets/img/comments.svg"></div>
+                    <div class="msg-area">
+                      <div ng-bind-html="getMessage(msg)" class="ng-binding">New comments on your post.</div>
+                      <span class="ng-binding">3 days ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in notifications -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in notifications">
+                    <div class="img-area"><img ng-class="{'photo-msg-item' : !msg.image}" ng-src="assets/img/app/profile/Kostya.png" src="assets/img/app/profile/Kostya.png" class="photo-msg-item"></div>
+                    <div class="msg-area">
+                      <div ng-bind-html="getMessage(msg)" class="ng-binding"><strong>Kostya</strong> invited you to join the event.</div>
+                      <span class="ng-binding">1 week ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in notifications -->
+                </div>
+                <a href="">See all notifications</a>
+              </div>
+            </li>
+            <li uib-dropdown="" class="dropdown">
+              <a href="" class="msg dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-envelope-o"></i><span>5</span>
+                <div class="notification-ring"></div>
+              </a>
+              <div uib-dropdown-menu="" class="top-dropdown-menu dropdown-menu">
+                <i class="dropdown-arr"></i>
+                <div class="header clearfix"><strong>Messages</strong> <a href="">Mark All as Read</a> <a href="">Settings</a></div>
+                <div class="msg-list">
+                  <!-- ngRepeat: msg in messages -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in messages">
+                    <div class="img-area"><img class="photo-msg-item" ng-src="assets/img/app/profile/Nasta.png" src="assets/img/app/profile/Nasta.png"></div>
+                    <div class="msg-area">
+                      <div class="ng-binding">After you get up and running, you can place Font Awesome icons just about...</div>
+                      <span class="ng-binding">1 min ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in messages -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in messages">
+                    <div class="img-area"><img class="photo-msg-item" ng-src="assets/img/app/profile/Vlad.png" src="assets/img/app/profile/Vlad.png"></div>
+                    <div class="msg-area">
+                      <div class="ng-binding">You asked, Font Awesome delivers with 40 shiny new icons in version 4.2.</div>
+                      <span class="ng-binding">2 hrs ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in messages -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in messages">
+                    <div class="img-area"><img class="photo-msg-item" ng-src="assets/img/app/profile/Kostya.png" src="assets/img/app/profile/Kostya.png"></div>
+                    <div class="msg-area">
+                      <div class="ng-binding">Want to request new icons? Here's how. Need vectors or want to use on the...</div>
+                      <span class="ng-binding">10 hrs ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in messages -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in messages">
+                    <div class="img-area"><img class="photo-msg-item" ng-src="assets/img/app/profile/Andrey.png" src="assets/img/app/profile/Andrey.png"></div>
+                    <div class="msg-area">
+                      <div class="ng-binding">Explore your passions and discover new ones by getting involved. Stretch your...</div>
+                      <span class="ng-binding">1 day ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in messages -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in messages">
+                    <div class="img-area"><img class="photo-msg-item" ng-src="assets/img/app/profile/Nasta.png" src="assets/img/app/profile/Nasta.png"></div>
+                    <div class="msg-area">
+                      <div class="ng-binding">Get to know who we are - from the inside out. From our history and culture, to the...</div>
+                      <span class="ng-binding">1 day ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in messages -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in messages">
+                    <div class="img-area"><img class="photo-msg-item" ng-src="assets/img/app/profile/Kostya.png" src="assets/img/app/profile/Kostya.png"></div>
+                    <div class="msg-area">
+                      <div class="ng-binding">Need some support to reach your goals? Apply for scholarships across a variety of...</div>
+                      <span class="ng-binding">2 days ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in messages -->
+                  <a href="" class="clearfix ng-scope" ng-repeat="msg in messages">
+                    <div class="img-area"><img class="photo-msg-item" ng-src="assets/img/app/profile/Vlad.png" src="assets/img/app/profile/Vlad.png"></div>
+                    <div class="msg-area">
+                      <div class="ng-binding">Wrap the dropdown's trigger and the dropdown menu within .dropdown, or...</div>
+                      <span class="ng-binding">1 week ago</span>
+                    </div>
+                  </a>
+                  <!-- end ngRepeat: msg in messages -->
+                </div>
+                <a href="">See all messages</a>
+              </div>
+            </li>
+          </ul>
+        </msg-center>
+      </div>
+      <div class="questions-section">Have questions? <a href="mailto:contact@akveo.com">contact@akveo.com</a></div>
+    </div>
+  </page-top>
+  <div class="al-main">
+      <app-root>Loading...</app-root>
+  </div>
+  <footer class="al-footer clearfix">
+    <div class="al-footer-right">Created with <i class="ion-heart"></i></div>
+    <div class="al-footer-main clearfix">
+      <div class="al-copy">© <a href="http://akveo.com" target="_blank">Akveo</a> 2016</div>
+      <ul class="al-share clearfix">
+        <li><a href="https://www.facebook.com/akveo" target="_blank"><i class="socicon socicon-facebook"></i></a></li>
+        <li><a href="https://twitter.com/akveo_inc" target="_blank"><i class="socicon socicon-twitter"></i></a></li>
+        <li><a href="mailto:contact@akveo.com"><i class="socicon socicon-google"></i></a></li>
+        <li><a href="https://github.com/akveo" target="_blank"><i class="socicon socicon-github"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+  <back-top><i class="fa fa-angle-up back-top white" id="backTop" title="Back to Top" style="right: 40px; bottom: 40px; position: fixed;"></i></back-top>
+</main>
+<div id="preloader" ng-show="!$pageFinishedLoading" class="ng-hide">
+  <div></div>
+</div>
+</body>
+</html>

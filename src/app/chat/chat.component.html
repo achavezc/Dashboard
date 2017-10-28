@@ -1,0 +1,234 @@
+<div class="al-content">
+  <content-top>
+    <div class="content-top clearfix">
+      <h1 class="al-title ng-binding">Dashboard</h1>
+      <ul class="breadcrumb al-breadcrumb">
+        <li><a href="#/dashboard">Home</a></li>
+        <li class="ng-binding">Dashboard</li>
+      </ul>
+    </div>
+  </content-top>
+  <div ui-view="" autoscroll="true" autoscroll-body-top="" class="ng-scope">
+    <dashboard-pie-chart class="ng-scope">
+      <div class="row pie-charts">
+        <!-- ngRepeat: chart in charts -->
+        <div class="pie-chart-item-container ng-scope" ng-repeat="chart in charts">
+          <div ba-panel="">
+            <div class="panel panel-blur animated zoomIn" zoom-in="" ba-panel-blur="" style="background-size: 2855px 1606px; background-position: -472px 0px;">
+              <div class="panel-body" ng-transclude="">
+                <div class="pie-chart-item ng-scope">
+                  <div class="chart" rel="rgba(255, 255, 255, 0.2)" data-percent="60">
+                    <span class="percent">89</span>
+                    <canvas height="84" width="84"></canvas>
+                  </div>
+                  <div class="description">
+                    <div class="ng-binding">En Transito</div>
+                    <div class="description-stats ng-binding">45</div>
+                  </div>
+                  <i class="chart-icon i-person"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end ngRepeat: chart in charts -->
+        <div class="pie-chart-item-container ng-scope" ng-repeat="chart in charts">
+          <div ba-panel="">
+            <div class="panel panel-blur animated zoomIn" zoom-in="" ba-panel-blur="" style="background-size: 2855px 1606px; background-position: -472px 0px;">
+              <div class="panel-body" ng-transclude="">
+                <div class="pie-chart-item ng-scope">
+                  <div class="chart" rel="rgba(255, 255, 255, 0.2)" data-percent="60">
+                    <span class="percent">57</span>
+                    <canvas height="84" width="84">
+                    </canvas>
+                  </div>
+                  <div class="description">
+                    <div class="ng-binding">En tiempo de Entrega</div>
+                   <!-- <div class="description-stats ng-binding">$ 89,745</div>-->
+                  </div>
+                  <i class="chart-icon i-money"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end ngRepeat: chart in charts -->
+        <div class="pie-chart-item-container ng-scope" ng-repeat="chart in charts">
+          <div ba-panel="">
+            <div class="panel panel-blur animated zoomIn" zoom-in="" ba-panel-blur="" style="background-size: 2855px 1606px; background-position: -472px 0px;">
+              <div class="panel-body" ng-transclude="">
+                <div class="pie-chart-item ng-scope">
+                  <div class="chart" rel="rgba(255, 255, 255, 0.2)" data-percent="60">
+                    <span class="percent">80</span>
+                    <canvas height="84" width="84"></canvas>
+                  </div>
+                  <div class="description">
+                    <div class="ng-binding">En Deposito</div>
+                   <!-- <div class="description-stats ng-binding">178,391</div>-->
+                  </div>
+                  <i class="chart-icon i-face"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end ngRepeat: chart in charts -->
+        <div class="pie-chart-item-container ng-scope" ng-repeat="chart in charts">
+          <div ba-panel="">
+            <div class="panel panel-blur animated zoomIn" zoom-in="" ba-panel-blur="" style="background-size: 2855px 1606px; background-position: -472px 0px;">
+              <div class="panel-body" ng-transclude="">
+                <div class="pie-chart-item ng-scope">
+                  <div class="chart" rel="rgba(255, 255, 255, 0.2)" data-percent="60">
+                    <span class="percent">69</span>
+                    <canvas height="84" width="84"></canvas>
+                  </div>
+                  <div class="description">
+                    <div class="ng-binding">Alertas</div>
+                   <!-- <div class="description-stats ng-binding">32,592</div>-->
+                  </div>
+                  <i class="chart-icon i-refresh"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end ngRepeat: chart in charts -->
+      </div>
+    </dashboard-pie-chart>
+    <div class="row ng-scope">
+      <div class="col-lg-6 col-md-12 col-sm-12" ba-panel="" ba-panel-title="Acquisition Channels" ba-panel-class="medium-panel traffic-panel">
+        <div class="panel panel-blur xmedium-panel traffic-panel animated zoomIn" zoom-in="" ba-panel-blur="" style="background-size: 2855px 1606px; background-position: -472px 0px;">
+          <div class="panel-heading clearfix">
+            <h3 class="panel-title">MAPA DE OPERACIONES</h3>
+          </div>
+          <div class="panel-body" ng-transclude="">
+            <ngui-map center="Brampton, Canada" style="height: 470px !important;"></ngui-map>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12" ba-panel="" ba-panel-title="Users by Country" ba-panel-class="medium-panel">
+        <div class="panel panel-blur xmedium-panel animated zoomIn" zoom-in="" ba-panel-blur="" style="background-size: 2855px 1606px; background-position: -472px 0px;">
+          <div class="panel-heading clearfix">
+            <h3 class="panel-title">ALERTAS</h3>
+          </div>
+          <div class="panel-body" ng-transclude="">
+            <div include-with-scope="app/pages/tables/widgets/condensedTable.html" class="ng-scope">
+              <div class="horizontal-scroll">
+                <table class="table table-condensed">
+                  <thead>
+                  <tr>
+                    <th class="table-id">#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <!-- ngRepeat: item in peopleTableData -->
+                  <tr ng-repeat="item in peopleTableData" class="ng-scope">
+                    <td class="table-id ng-binding">1</td>
+                    <td class="ng-binding">Mark</td>
+                    <td class="ng-binding">Otto</td>
+                    <td class="ng-binding">@mdo</td>
+                    <td><a class="email-link ng-binding" ng-href="mailto:mdo@gmail.com" href="mailto:mdo@gmail.com">mdo@gmail.com</a></td>
+                    <td><button class="status-button btn btn-xs btn-info">info</button></td>
+                  </tr>
+                  <!-- end ngRepeat: item in peopleTableData -->
+                  <tr ng-repeat="item in peopleTableData" class="ng-scope">
+                    <td class="table-id ng-binding">2</td>
+                    <td class="ng-binding">Jacob</td>
+                    <td class="ng-binding">Thornton</td>
+                    <td class="ng-binding">@fat</td>
+                    <td><a class="email-link ng-binding" ng-href="mailto:fat@yandex.ru" href="mailto:fat@yandex.ru">fat@yandex.ru</a></td>
+                    <td><button class="status-button btn btn-xs btn-primary">primary</button></td>
+                  </tr>
+                  <!-- end ngRepeat: item in peopleTableData -->
+                  <tr ng-repeat="item in peopleTableData" class="ng-scope">
+                    <td class="table-id ng-binding">3</td>
+                    <td class="ng-binding">Larry</td>
+                    <td class="ng-binding">Bird</td>
+                    <td class="ng-binding">@twitter</td>
+                    <td><a class="email-link ng-binding" ng-href="mailto:twitter@outlook.com" href="mailto:twitter@outlook.com">twitter@outlook.com</a></td>
+                    <td><button class="status-button btn btn-xs btn-success">success</button></td>
+                  </tr>
+                  <!-- end ngRepeat: item in peopleTableData -->
+                  <tr ng-repeat="item in peopleTableData" class="ng-scope">
+                    <td class="table-id ng-binding">4</td>
+                    <td class="ng-binding">John</td>
+                    <td class="ng-binding">Snow</td>
+                    <td class="ng-binding">@snow</td>
+                    <td><a class="email-link ng-binding" ng-href="mailto:snow@gmail.com" href="mailto:snow@gmail.com">snow@gmail.com</a></td>
+                    <td><button class="status-button btn btn-xs btn-danger">danger</button></td>
+                  </tr>
+                  <!-- end ngRepeat: item in peopleTableData -->
+                  <tr ng-repeat="item in peopleTableData" class="ng-scope">
+                    <td class="table-id ng-binding">5</td>
+                    <td class="ng-binding">Jack</td>
+                    <td class="ng-binding">Sparrow</td>
+                    <td class="ng-binding">@jack</td>
+                    <td><a class="email-link ng-binding" ng-href="mailto:jack@yandex.ru" href="mailto:jack@yandex.ru">jack@yandex.ru</a></td>
+                    <td><button class="status-button btn btn-xs btn-warning">warning</button></td>
+                  </tr>
+                  <!-- end ngRepeat: item in peopleTableData -->
+
+                  <!-- ngRepeat: item in peopleTableData -->
+                  <tr ng-repeat="item in peopleTableData" class="ng-scope">
+                    <td class="table-id ng-binding">1</td>
+                    <td class="ng-binding">Mark</td>
+                    <td class="ng-binding">Otto</td>
+                    <td class="ng-binding">@mdo</td>
+                    <td><a class="email-link ng-binding" ng-href="mailto:mdo@gmail.com" href="mailto:mdo@gmail.com">mdo@gmail.com</a></td>
+                    <td><button class="status-button btn btn-xs btn-info">info</button></td>
+                  </tr>
+                  <!-- end ngRepeat: item in peopleTableData -->
+                  <tr ng-repeat="item in peopleTableData" class="ng-scope">
+                    <td class="table-id ng-binding">2</td>
+                    <td class="ng-binding">Jacob</td>
+                    <td class="ng-binding">Thornton</td>
+                    <td class="ng-binding">@fat</td>
+                    <td><a class="email-link ng-binding" ng-href="mailto:fat@yandex.ru" href="mailto:fat@yandex.ru">fat@yandex.ru</a></td>
+                    <td><button class="status-button btn btn-xs btn-primary">primary</button></td>
+                  </tr>
+                  <!-- end ngRepeat: item in peopleTableData -->
+                  <tr ng-repeat="item in peopleTableData" class="ng-scope">
+                    <td class="table-id ng-binding">3</td>
+                    <td class="ng-binding">Larry</td>
+                    <td class="ng-binding">Bird</td>
+                    <td class="ng-binding">@twitter</td>
+                    <td><a class="email-link ng-binding" ng-href="mailto:twitter@outlook.com" href="mailto:twitter@outlook.com">twitter@outlook.com</a></td>
+                    <td><button class="status-button btn btn-xs btn-success">success</button></td>
+                  </tr>
+                  <!-- end ngRepeat: item in peopleTableData -->
+                  <tr ng-repeat="item in peopleTableData" class="ng-scope">
+                    <td class="table-id ng-binding">4</td>
+                    <td class="ng-binding">John</td>
+                    <td class="ng-binding">Snow</td>
+                    <td class="ng-binding">@snow</td>
+                    <td><a class="email-link ng-binding" ng-href="mailto:snow@gmail.com" href="mailto:snow@gmail.com">snow@gmail.com</a></td>
+                    <td><button class="status-button btn btn-xs btn-danger">danger</button></td>
+                  </tr>
+                  <!-- end ngRepeat: item in peopleTableData -->
+                  <tr ng-repeat="item in peopleTableData" class="ng-scope">
+                    <td class="table-id ng-binding">5</td>
+                    <td class="ng-binding">Jack</td>
+                    <td class="ng-binding">Sparrow</td>
+                    <td class="ng-binding">@jack</td>
+                    <td><a class="email-link ng-binding" ng-href="mailto:jack@yandex.ru" href="mailto:jack@yandex.ru">jack@yandex.ru</a></td>
+                    <td><button class="status-button btn btn-xs btn-warning">warning</button></td>
+                  </tr>
+                  <!-- end ngRepeat: item in peopleTableData -->
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
